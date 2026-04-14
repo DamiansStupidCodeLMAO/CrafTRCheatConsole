@@ -46,7 +46,11 @@ function addMobMorph(folder, mobid, mobname)
 	folder:newEntry(mobname, function ()
 		if Game.World.Loaded then
 			writeMobToPlayer(mobid) 
-			Core.Menu.showMessageBox("Set player model to "..mobname)
+			if mobname == "Experience Orb [CAUSES MAINHAND RENDER CRASH]" then
+				Core.Menu.showMessageBox("Your choice. Wouldn't recommend going into first person with this.")
+			else
+				Core.Menu.showMessageBox("Set player model to "..mobname)
+			end
 		else
 			Core.Menu.showMessageBox("First enter a world!")
 		end
